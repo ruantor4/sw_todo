@@ -21,12 +21,5 @@ from tarefas import views
 
 urlpatterns = [
 
-    # Rota do Django Admin
-    path('admin/', admin.site.urls),
 
-    # Incluindo rota para app usuários
-    path('', include('usuarios.urls')),
-
-    # Incluindo rota para app tarefas
-    path('tarefas/', include('tarefas.urls')),
 ]
