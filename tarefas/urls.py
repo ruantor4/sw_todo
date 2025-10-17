@@ -18,10 +18,20 @@ from django.contrib import admin
 from django.urls import path, include
 
 from tarefas import views
-from tarefas.views import TodoListView, TodoCreateView
+from tarefas.views import TodoListView, TodoCreateView, TodoUpdateView, TodoDeleteView
 
 urlpatterns = [
 
+    # Rota para listar todas tarefas na pagina inicial
     path('', TodoListView.as_view(), name="todo_list"),
+
+    # Rota para criar novas tarefas
     path('create', TodoCreateView.as_view(), name="todo_create"),
+
+    # Rota para editar usuario passando o ID
+    path('update/<int:pk>', TodoUpdateView.as_view(), name="todo_update"),
+
+    # Rota para deletar usuario passando o ID
+    path('delete/<int:pk>', TodoDeleteView.as_view(), name="todo_delete"),
+
 ]
