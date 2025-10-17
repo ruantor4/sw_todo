@@ -25,8 +25,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
 
     # Incluindo rota para app usuários
-    path('', include('usuarios.urls')),
+    path('usuarios/', include('usuarios.urls')),
 
     # Incluindo rota para app tarefas
-    path('tarefas/', include('tarefas.urls')),
+    path('', include('tarefas.urls')),
 ]

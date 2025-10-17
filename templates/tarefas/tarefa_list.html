@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block page_title %}
+    Nova Tarefa
+{% endblock page_title %}
+
+{% block content %}
+ <h1>Lista de Tarefas</h1>
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Titulo</th>
+            <th scope="col">Criado em</th>
+            <th scope="col">Status</th>
+            <th scope="col">Data Entrega</th>
+            <th scope="col">Descrição</th>
+            <th scope="col">Ações</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for tarefa in tarefa_list %}
+        <tr>
+            <th scope="row">{{ tarefa.pk|default:" -" }}</th>
+            <td>{{ tarefa.titulo|default:" -" }}</td>
+            <td>{{tarefa.data_criacao|default:" -"}}</td>
+            <td>{{ tarefa.status|default:" -" }}</td>
+            <td>{{ tarefa.data_final|default:" -" }}</td>
+            <td>{{ tarefa.descricao|default:" -" }}</td>
+            <td>
+                <a href="#" class="btn btn-primary btn-sm">Concluir</a>
+                <a href="#" class="btn btn-danger btn-sm">Excluir</a>
+            </td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{% url 'todo_create' %}" class="btn btn-primary btn-sm">Criar Tarefa</a>
+{% endblock content %}
+
+

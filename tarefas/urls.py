@@ -18,8 +18,10 @@ from django.contrib import admin
 from django.urls import path, include
 
 from tarefas import views
+from tarefas.views import TodoListView, TodoCreateView
 
 urlpatterns = [
 
-
+    path('', TodoListView.as_view(), name="todo_list"),
+    path('create', TodoCreateView.as_view(), name="todo_create"),
 ]
